@@ -9,3 +9,4 @@ CREATE TABLE animals (
     weight_kg real,
     primary key(id)
 );
+alter table animals add species varchar(100);
