@@ -40,3 +40,35 @@ ROLLBACK TO SP1;
 
 UPDATE animals SET weight_kg = weight_kg*(-1) WHERE weight_kg < 0;
 COMMIT;
+
+insert into owners (full_name,age) values('Sam Smith', 34);
+insert into owners (full_name,age) values('Jennifer Orwell', 19);
+insert into owners (full_name,age) values('Bob', 45);
+insert into owners (full_name,age) values('Melody Pond', 77);
+insert into owners (full_name,age) values('Dean Winchester', 14);
+insert into owners (full_name,age) values('Jodie Whittaker ', 38);
+
+insert into species(name) values('Pokemon');
+insert into species(name) values('Digimon');
+
+update animals set species_id = 2 where name like '%mon';
+update animals set species_id = 1 where species_id is null;
+
+update animals 
+set owner_id =(select id from owners where full_name = 'Sam Smith') where name='Agumon';
+
+update animals 
+set owner_id =(select id from owners where full_name = 'Jennifer Orwell') 
+where name='Gabumon' or name='Pikachu';
+
+update animals 
+set owner_id =(select id from owners where full_name = 'Bob') 
+where name='Devimon' or name='Plantmon';
+
+update animals 
+set owner_id =(select id from owners where full_name = 'Melody Pond') 
+where name='Charmander' or name='Squirtle' or name='Blossom';
+
+update animals 
+set owner_id =(select id from owners where full_name = 'Dean Winchester') 
+where name='Angemon' or name='Boarmon';
