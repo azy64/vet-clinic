@@ -72,3 +72,4 @@ where name='Charmander' or name='Squirtle' or name='Blossom';
 update animals 
 set owner_id =(select id from owners where full_name = 'Dean Winchester') 
 where name='Angemon' or name='Boarmon';
+
